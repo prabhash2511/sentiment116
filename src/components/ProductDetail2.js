@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { db, auth } from "../firebase"; // Import auth from firebase.js
 import { collection, addDoc, getDocs } from "firebase/firestore";
 import Sentiment from "sentiment"; // Sentiment analysis library
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const ProductDetail2 = () => {
   const [review, setReview] = useState("");
   const [reviews, setReviews] = useState([]);
   const sentiment = new Sentiment(); // Initialize sentiment analyzer
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Fetch reviews from Firestore
   useEffect(() => {

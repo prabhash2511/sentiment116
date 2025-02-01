@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
-import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+// import { collection, getDocs, doc, getDoc } from "firebase/firestore";
+import {  doc, getDoc } from "firebase/firestore"; //copy of above
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {
