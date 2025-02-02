@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { collection, addDoc } from "firebase/firestore";
+import { doc, setDoc } from "firebase/firestore"; // Add this import
 import { useNavigate } from "react-router-dom";
 
 const Register = () => {
@@ -19,6 +21,7 @@ const Register = () => {
       return;
     }
     try {
+      // Create user in Firebase Authentication
       const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
@@ -29,6 +32,13 @@ const Register = () => {
       // Set the user's display name
       await updateProfile(user, {
         displayName: name,
+      });
+
+      // Save user data in Firestore
+      await setDoc(doc(db, "users", user.uid), {
+        name: name,
+        email: email,
+        createdAt: new Date(), // Optional: Add a timestamp
       });
 
       alert("Registration successful!");

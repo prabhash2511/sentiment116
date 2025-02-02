@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
-// import { collection, getDocs, doc, getDoc } from "firebase/firestore";
-import {  doc, getDoc } from "firebase/firestore"; //copy of above
+import { doc, getDoc } from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth"; // Add this import
 import { useNavigate } from "react-router-dom";
 
 const Product = () => {
@@ -10,17 +10,29 @@ const Product = () => {
 
   // Fetch user's name from Firestore
   useEffect(() => {
-    const fetchUserName = async () => {
-      const user = auth.currentUser;
+    // Listen for authentication state changes
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const userDoc = await getDoc(doc(db, "users", user.uid));
-        if (userDoc.exists()) {
-          setUserName(userDoc.data().name);
+        console.log("User UID:", user.uid); // Log the user's UID
+        try {
+          const userDoc = await getDoc(doc(db, "users", user.uid));
+          if (userDoc.exists()) {
+            console.log("User document:", userDoc.data()); // Log the document data
+            setUserName(userDoc.data().name);
+          } else {
+            console.log("User document does not exist in Firestore.");
+          }
+        } catch (error) {
+          console.error("Error fetching user data:", error);
         }
+      } else {
+        console.log("No user is currently logged in.");
+        setUserName(""); // Clear the user name if no user is logged in
       }
-    };
+    });
 
-    fetchUserName();
+    // Cleanup the listener on unmount
+    return () => unsubscribe();
   }, []);
 
   // Dummy product data
@@ -66,7 +78,7 @@ const Product = () => {
       >
         {/* Welcome Message */}
         <div style={{ fontSize: "18px", fontWeight: "bold" }}>
-          Welcome, {userName || "User"}!
+          Welcome, {userName || "User"} !
         </div>
 
         {/* Profile and Logout Buttons */}
