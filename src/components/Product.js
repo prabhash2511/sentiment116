@@ -39,25 +39,25 @@ const Product = () => {
   const products = [
     {
       id: 1,
-      name: "Product 1",
+      name: "Air Jordan 1",
       price: "$19.99",
       image: require("./images/product1.jpg"),
     },
     {
       id: 2,
-      name: "Product 2",
+      name: "Fast Repel",
       price: "$29.99",
       image: require("./images/product2.png"),
     },
     {
       id: 3,
-      name: "Product 3",
+      name: "Paris Saint-Germain Jumpman",
       price: "$39.99",
       image: require("./images/product3.png"),
     },
     {
       id: 4,
-      name: "Product 4",
+      name: "Liverpool F.C. Strike Special Edition",
       price: "$49.99",
       image: require("./images/product4.png"),
     },

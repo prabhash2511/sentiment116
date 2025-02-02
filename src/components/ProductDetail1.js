@@ -64,7 +64,7 @@ const ProductDetail1 = () => {
         timestamp: new Date(),
         userId: user.uid, // Save user ID
         userName: user.displayName || "Anonymous", // Save user name
-        productName: "Product 1", // Save product name
+        productName: "Air Jordan 1", // Save product name
       });
       setReview(""); // Clear the input field
       alert("Review added successfully!");
@@ -90,7 +90,7 @@ const ProductDetail1 = () => {
           alt="Product 1"
           style={{ width: "100%", maxWidth: "400px", borderRadius: "8px" }}
         />
-        <h2 style={{ marginTop: "10px" }}>Product 1</h2>
+        <h2 style={{ marginTop: "10px" }}>Air Jordan 1</h2>
         <p><strong>Price:</strong> $19.99</p>
         <p><strong>Description:</strong> <br></br>Always in, always fresh. The Air Jordan 1 Low sets you up with a piece of Jordan history and heritage that's comfortable all day. <br></br>Choose your colours, then step out in the iconic profile that's built with a high-end mix of materials and encapsulated Air in the heel.
 <br></br>

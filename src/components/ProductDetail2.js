@@ -64,7 +64,7 @@ const ProductDetail2 = () => {
         timestamp: new Date(),
         userId: user.uid, // Save user ID
         userName: user.displayName || "Anonymous", // Save user name
-        productName: "Product 2", // Save product name
+        productName: "Fast Repel", // Save product name
       });
       setReview(""); // Clear the input field
       alert("Review added successfully!");
@@ -90,7 +90,7 @@ const ProductDetail2 = () => {
           alt="Product 1"
           style={{ width: "100%", maxWidth: "400px", borderRadius: "8px" }}
         />
-        <h2 style={{ marginTop: "10px" }}>Product 2</h2>
+        <h2 style={{ marginTop: "10px" }}>Fast Repel</h2>
         <p><strong>Price:</strong> $29.99</p>
         <p><strong>Description:</strong> <br></br>Don't let the rain stop you in this lightweight, water-repellent jacket. <br></br>With a stowaway hood and curved, elongated back hem for extra coverage, you can feel prepared for changing conditions. <br></br>Add the vent on the back that helps increase airflow, and you're ready to push through that extra mile, whatever the weather.
 <br></br>

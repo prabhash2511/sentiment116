@@ -64,7 +64,7 @@ const ProductDetail3 = () => {
         timestamp: new Date(),
         userId: user.uid, // Save user ID
         userName: user.displayName || "Anonymous", // Save user name
-        productName: "Product 3", // Save product name
+        productName: "Paris Saint-Germain Jumpman", // Save product name
       });
       setReview(""); // Clear the input field
       alert("Review added successfully!");
@@ -90,7 +90,7 @@ const ProductDetail3 = () => {
           alt="Product 1"
           style={{ width: "100%", maxWidth: "400px", borderRadius: "8px" }}
         />
-        <h2 style={{ marginTop: "10px" }}>Product 3</h2>
+        <h2 style={{ marginTop: "10px" }}>Paris Saint-Germain Jumpman</h2>
         <p><strong>Price:</strong> $39.99</p>
         <p><strong>Description:</strong> <br></br>Slide in and go. Enjoy the cushioning of thick, lightweight foam for beach days or post-game hangouts.<br></br>
 

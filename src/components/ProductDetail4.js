@@ -64,7 +64,7 @@ const ProductDetail4 = () => {
         timestamp: new Date(),
         userId: user.uid, // Save user ID
         userName: user.displayName || "Anonymous", // Save user name
-        productName: "Product 4", // Save product name
+        productName: "Liverpool F.C. Strike Special Edition", // Save product name
       });
       setReview(""); // Clear the input field
       alert("Review added successfully!");
@@ -90,7 +90,7 @@ const ProductDetail4 = () => {
           alt="Product 1"
           style={{ width: "100%", maxWidth: "400px", borderRadius: "8px" }}
         />
-        <h2 style={{ marginTop: "10px" }}>Product 4</h2>
+        <h2 style={{ marginTop: "10px" }}>Liverpool F.C. Strike Special Edition</h2>
         <p><strong>Price:</strong> $49.99</p>
         <p><strong>Description:</strong> <br></br>With design details specifically tailored for football's rising stars, a slim, streamlined fit ensures that nothing comes between you and the ball. <br></br>Sweat-wicking technology helps keep you cool and composed while you fine-tune your skills.
 
