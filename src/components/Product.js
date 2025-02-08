@@ -1,41 +1,34 @@
 import React, { useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth"; // Add this import
+import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+
+import { Link } from "react-router-dom"; // Import Link
 
 const Product = () => {
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
 
-  // Fetch user's name from Firestore
   useEffect(() => {
-    // Listen for authentication state changes
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if (user) {
-        console.log("User UID:", user.uid); // Log the user's UID
         try {
           const userDoc = await getDoc(doc(db, "users", user.uid));
           if (userDoc.exists()) {
-            console.log("User document:", userDoc.data()); // Log the document data
             setUserName(userDoc.data().name);
-          } else {
-            console.log("User document does not exist in Firestore.");
           }
         } catch (error) {
           console.error("Error fetching user data:", error);
         }
       } else {
-        console.log("No user is currently logged in.");
-        setUserName(""); // Clear the user name if no user is logged in
+        setUserName("");
       }
     });
 
-    // Cleanup the listener on unmount
     return () => unsubscribe();
   }, []);
 
-  // Dummy product data
   const products = [
     {
       id: 1,
@@ -81,10 +74,26 @@ const Product = () => {
           Welcome, {userName || "User"} !
         </div>
 
-        {/* Profile and Logout Buttons */}
+        {/* Buttons */}
         <div>
+          
+        <button
+    onClick={() => navigate("/rank")} // Navigate to rank page
+    style={{
+      padding: "8px 16px",
+      backgroundColor: "#007bff",
+      color: "#fff",
+      border: "none",
+      borderRadius: "4px",
+      cursor: "pointer",
+      marginRight: "10px",
+    }}
+  >
+    Rank
+  </button>
+          
           <button
-            onClick={() => navigate("/profile")} // Navigate to profile page
+            onClick={() => navigate("/profile")}
             style={{
               padding: "8px 16px",
               backgroundColor: "#28a745",

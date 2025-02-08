@@ -7,6 +7,7 @@ import ProductDetail1 from "./components/ProductDetail1";
 import ProductDetail2 from "./components/ProductDetail2";
 import ProductDetail3 from "./components/ProductDetail3";
 import ProductDetail4 from "./components/ProductDetail4";
+import Rank from "./components/Rank";
 import Profile from "./components/Profile"; // Import the Profile component
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/product-detail/2" element={<ProductDetail2 />} />
         <Route path="/product-detail/3" element={<ProductDetail3 />} />
         <Route path="/product-detail/4" element={<ProductDetail4 />} />
+        <Route path="/rank" element={<Rank />} />
         <Route path="/profile" element={<Profile />} /> {/* Add this route */}
         <Route path="/" element={<Login />} />
       </Routes>
