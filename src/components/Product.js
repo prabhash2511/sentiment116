@@ -4,7 +4,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 
-import { Link } from "react-router-dom"; // Import Link
+// import { Link } from "react-router-dom"; // Import Link
 
 const Product = () => {
   const [userName, setUserName] = useState("");
